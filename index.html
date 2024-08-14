@@ -2,58 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coordinate Image Selector</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="stylesheet" href="toolbar.css">
+    <link rel="stylesheet" href="sidebar.css">
 </head>
-<body class="bg-blue-200 flex items-center justify-center min-h-screen">
-    <div class="bg-red p-5 rounded-lg shadow-lg space-y-4 max-w-md">
-        <!-- Output image -->
-        <img id="coord-image" src="images/out256_00_00.jpg" alt="Coordinate-based Image" class="w-full h-auto rounded-lg border border-gray-300" />
-
-        <!-- Inputs -->
-        <div class="input-container space-y-6">
-            <fieldset id="change-with-input" class="space-y-4">
-                <label for="x-changer" class="block text-blue-700 text-lg font-semibold">X Coordinate</label>
-                <input id="x-changer" class="image-input block w-full p-3 border border-blue-500 rounded-lg text-gray-700" placeholder="Select X" value="00" />
-                <label for="y-changer" class="block text-blue-700 text-lg font-semibold">Y Coordinate</label>
-                <input id="y-changer" class="image-input block w-full p-3 border border-blue-500 rounded-lg text-gray-700" placeholder="Select Y" value="00" />
-            </fieldset>
-
-            <fieldset id="change-with-select" class="space-y-4">
-                <select id="x-coord" class="coord-select block w-full p-3 border border-green-500 rounded-lg text-gray-700">
-                    <option value="00">Zeroth</option>
-                    <option value="01">First</option>
-                    <option value="02">Second</option>
-                    <option value="03">Third</option>
-                    <option value="04">Fourth</option>
-                    <option value="05">Fifth</option>
-                    <option value="06">Sixth</option>
-                    <option value="07">Seventh</option>
-                    <option value="08">Eighth</option>
-                    <option value="09">Ninth</option>
-                    <option value="10">Tenth</option>
-                    <option value="11">Eleventh</option>
-                </select>
-
-                <select id="y-coord" class="coord-select block w-full p-3 border border-green-500 rounded-lg text-gray-700">
-                    <option value="00">Zeroth</option>
-                    <option value="01">First</option>
-                    <option value="02">Second</option>
-                    <option value="03">Third</option>
-                    <option value="04">Fourth</option>
-                    <option value="05">Fifth</option>
-                    <option value="06">Sixth</option>
-                    <option value="07">Seventh</option>
-                    <option value="08">Eighth</option>
-                    <option value="09">Ninth</option>
-                    <option value="10">Tenth</option>
-                    <option value="11">Eleventh</option>
-                </select>
-            </fieldset>
-
-            <button id="image-changer" class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-700">Change image</button>
+<body>
+    <header>
+        <div class="container">
+            <h1>PINFO</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-    <script src="script.js" type="text/javascript"></script>
+    </header>
+    <main>
+        <section id="intro">
+            <div class="container">
+                <h2>Welcome to PINFO</h2>
+                <p>Your ultimate site analysis app for real estate investment.</p>
+                <div class="video-container">
+                    <video controls>
+                        <source src="video/Test_02_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <a href="demo.html" class="cta-button">Watch Demo</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Contact Us: <a href="mailto:info@pinfo.ai">info@pinfo.ai</a></p>
+        </div>
+    </footer>
 </body>
 </html>

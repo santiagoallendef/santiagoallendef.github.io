@@ -1,0 +1,35 @@
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0; /* Adjusted padding to fit the fixed height */
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; /* Fixes the footer at the bottom */
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 50px; /* Fixed height */
+    line-height: 50px; /* Vertically center the text */
+}
+
+footer .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin: 0; /* Ensures the text is vertically centered */
+    line-height: 1.5; /* Adjusts line height for better readability */
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

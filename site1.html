@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site 1 - PINFO</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="stylesheet" href="toolbar.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="globals.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 60px; /* Height of header */
+            margin-bottom: 60px; /* Height of footer */
+            padding: 0 20px;
+        }
+
+        .active-link {
+            background-color: #f9e8c4; /* Orange background */
+            border: 2px solid black;  /* Black border */
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        .content {
+            display: block; /* Update to block to allow sidebars below the toolbar */
+            position: relative;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-color: #f4f4f4; /* Fallback background color */
+        }
+
+        .sidebar {
+            width: 100%; /* Make the sidebar take the full width */
+            padding-right: 0;
+            border-right: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px; /* Add spacing between sidebars */
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .toolbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 10px;
+            width: calc(100% - 40px); /* Adjust for padding */
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add spacing below toolbar */
+        }
+
+        .property-details {
+            width: 100%; /* Ensure full width */
+            padding-left: 0;
+        }
+
+        .property-details img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .details-text {
+            background-color: #f9e8c4; /* Orange background */
+            border: 2px solid black;  /* Black border */
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>PINFO</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="site-details">
+            <div class="container">
+                <h2>4361 Weidlake Dr, Los Angeles, CA</h2>
+                <div class="content" id="background-container">
+                    <div class="toolbar main-toolbar">
+                        <a href="#" class="active-tab" onclick="showDetails('property')">Property</a>
+                        <a href="#" onclick="showDetails('market')">Market</a>
+                        <a href="#" onclick="showDetails('location')">Location</a>
+                        <a href="#" onclick="showDetails('infrastructure')">Infrastructure</a>
+                        <a href="#" onclick="showDetails('financials')">Financials</a>
+                        <a href="index.html" class="home-button">SA</a>
+                    </div>
+                    <div class="sidebar" id="sidebar">
+                        <!-- This sidebar will change based on the selected section -->
+                        <a href="#" id="details-link" onclick="showSubSection(event, 'details')">Details</a>
+                        <a href="#" id="googleEarthView-link" onclick="showSubSection(event, 'googleEarthView')">Google Earth View</a>
+                        <a href="#" id="renderView-link" onclick="showSubSection(event, 'renderView')">Render View</a>
+                        <a href="#" id="sunLightPath-link" onclick="showSubSection(event, 'sunLightPath')">Sun Light Path</a>
+                        <a href="#" id="topography-link" onclick="showSubSection(event, 'topography')">Topography</a>
+                    </div>
+                    <div class="property-details">
+                        <img id="site-image" src="images/terrain1/property/details.png" alt="Site 1 Image">
+                        <div id="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Contact Us: <a href="mailto:info@pinfo.ai">info@pinfo.ai</a></p>
+        </div>
+    </footer>
+    <script>
+        let selectedSection = 'details'; // Default section
+
+        function showDetails(section) {
+            selectedSection = section;
+            const sidebar = document.getElementById('sidebar');
+            const chartContainer = document.getElementById('chart-container');
+
+            if (section === 'market') {
+                sidebar.innerHTML = `
+                    <a href="#" onclick="showSubSection(event, 'comparativeMarketAnalysis')">Comparative Market Analysis</a>
+                    <a href="#" onclick="showSubSection(event, 'mySiteOverTime')">My Site Over Time</a>
+                    <a href="#" onclick="showSubSection(event, 'propertyPricesOverTime')">Property Prices Over Time</a>
+                    <a href="#" onclick="showSubSection(event, 'supplyAndDemand')">Supply and Demand</a>
+                `;
+            } else if (section === 'location') {
+                sidebar.innerHTML = `
+                    <a href="#" onclick="showSubSection(event, 'accessibility')">Accessibility</a>
+                    <a href="#" onclick="showSubSection(event, 'amenities')">Amenities</a>
+                    <a href="#" onclick="showSubSection(event, 'urbanDevelopments')">Urban Developments</a>
+                `;
+            } else if (section === 'infrastructure') {
+                sidebar.innerHTML = `
+                    <a href="#" onclick="showSubSection(event, 'infrastructure')">Infrastructure Overview</a>
+                    <a href="#" onclick="showSubSection(event, 'infrastructureStat')">Infrastructure Statistics</a>
+                `;
+            } else if (section === 'financials') {
+                sidebar.innerHTML = `
+                    <a href="#" onclick="showSubSection(event, 'economicIndicatorsOverTime')">Economic Indicators Over Time</a>
+                    <a href="#" onclick="showSubSection(event, 'financingOptions')">Financing Options</a>
+                    <a href="#" onclick="showSubSection(event, 'taxes')">Taxes</a>
+                `;
+            } else {
+                // Default Property section options
+                sidebar.innerHTML = `
+                    <a href="#" onclick="showSubSection(event, 'details')">Details</a>
+                    <a href="#" onclick="showSubSection(event, 'googleEarthView')">Google Earth View</a>
+                    <a href="#" onclick="showSubSection(event, 'renderView')">Render View</a>
+                    <a href="#" onclick="showSubSection(event, 'sunLightPath')">Sun Light Path</a>
+                    <a href="#" onclick="showSubSection(event, 'topography')">Topography</a>
+                `;
+            }
+
+            // Remove active class from all main toolbar links
+            document.querySelectorAll('.toolbar a').forEach(link => {
+                link.classList.remove('active-tab');
+            });
+
+            // Add active class to the clicked link
+            document.querySelector(`[onclick="showDetails('${section}')"]`).classList.add('active-tab');
+
+            // Clear chart container when changing sections
+            chartContainer.innerHTML = '';
+        }
+
+        function showSubSection(event, subsection) {
+            event.preventDefault();
+            const images = {
+                details: 'images/terrain1/property/details.png',
+                googleEarthView: 'images/terrain1/property/googleEarthView.png',
+                renderView: 'images/terrain1/property/renderView.png',
+                sunLightPath: 'images/terrain1/property/sunLightPath.png',
+                topography: 'images/terrain1/property/topography.png',
+                comparativeMarketAnalysis: 'images/terrain1/market/comparativeMarketAnalysis.png',
+                mySiteOverTime: 'images/terrain1/market/mySiteOverTime.png',
+                propertyPricesOverTime: 'images/terrain1/market/propertyPricesOverTime.png',
+                supplyAndDemand: 'images/terrain1/market/supplyAndDemand.png',
+                accessibility: 'images/terrain1/location/accessibility.png',
+                amenities: 'images/terrain1/location/amenities.png',
+                urbanDevelopments: 'images/terrain1/location/urbanDevelopments.png',
+                infrastructure: 'images/terrain1/infrastructure/infrastructure.png',
+                infrastructureStat: 'images/terrain1/infrastructure/infrastructureStat.png',
+                economicIndicatorsOverTime: 'images/terrain1/financials/economicIndicatorsOverTime.png',
+                financingOptions: 'images/terrain1/financials/financingOptions.png',
+                taxes: 'images/terrain1/financials/taxes.png'
+            };
+
+            document.getElementById('site-image').src = images[subsection];
+
+            // Load a chart when in the financials section
+            if (selectedSection === 'financials') {
+                loadChart(subsection);
+            }
+
+            // Remove active class from all sidebar links
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                link.classList.remove('active-link');
+            });
+
+            // Add active class to the clicked link
+            event.currentTarget.classList.add('active-link');
+        }
+
+        function loadChart(subsection) {
+            const chartContainer = document.getElementById('chart-container');
+            chartContainer.innerHTML = `<canvas id="chart"></canvas>`;
+            const ctx = document.getElementById('chart').getContext('2d');
+
+            // Simulate a chart for demonstration purposes
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May'],
+                    datasets: [{
+                        label: subsection,
+                        data: [10, 20, 30, 40, 50],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Set the initial background image
+        document.getElementById('background-container').style.backgroundImage = 'none';
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

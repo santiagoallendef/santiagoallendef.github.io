@@ -1,0 +1,49 @@
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 0 0 0 0; /* Adjusted padding to fit the fixed height */
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 50px; /* Fixed height */
+    line-height: 50px; /* Vertically center the text */
+}
+
+header .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Aligns items on both ends */
+    align-items: center; /* Centers items vertically */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem; /* Adjusted font size to fit the fixed height */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem; /* Adjusted font size */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
